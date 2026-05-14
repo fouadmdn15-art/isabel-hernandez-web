@@ -1073,6 +1073,51 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    .map-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px -16px rgba(26, 61, 51, 0.25);
+    }
+    .map-card:hover .pin {
+      animation-duration: 1.2s;
+    }
+    .map-card .map-cta {
+      position: absolute;
+      bottom: 18px;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--bg);
+      padding: 8px 14px;
+      border: 1px solid var(--gold);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity .35s var(--ease), transform .35s var(--ease);
+      pointer-events: none;
+    }
+    html[dir="rtl"] .map-card .map-cta {
+      inset-inline-start: auto;
+      inset-inline-end: 50%;
+      transform: translateX(50%);
+      letter-spacing: 0.04em;
+    }
+    .map-card:hover .map-cta {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+    html[dir="rtl"] .map-card:hover .map-cta {
+      transform: translateX(50%) translateY(-2px);
     }
     .map-card::before {
       content: '';
@@ -1813,11 +1858,17 @@
             </div>
           </div>
 
-          <div class="map-card reveal" aria-hidden="true">
+          <a class="map-card reveal"
+             href="https://www.google.com/maps/search/?api=1&query=Abogada+Isabel+Hern%C3%A1ndez+Puerto+de+la+Cruz+Tenerife"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Abrir ubicación en Google Maps"
+             data-i18n-aria="map.aria">
             <div class="map-label">Puerto de la Cruz<br/>Tenerife, Canarias</div>
             <div class="pin"></div>
             <div class="map-place" data-i18n-html="contact.mapPlace">Despacho<br/><em>María Isabel Hernández</em></div>
-          </div>
+            <span class="map-cta" data-i18n="map.cta">Abrir en Google Maps →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -1844,7 +1895,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <h5 data-i18n-html="footer.brand">María Isabel<br/><span class="ital">Hernández.</span></h5>
-          <p data-i18n="footer.tagline">Despacho de extranjería en Puerto de la Cruz. Asesoramiento jurídico para quienes han elegido Canarias como su lugar.</p>
+          <p data-i18n="footer.tagline">Despacho de extranjería en Puerto de la Cruz. Asesoramiento jurídico para quienes han elegido España como su lugar.</p>
         </div>
         <div class="footer-col">
           <h6 data-i18n="footer.servicesTitle">Servicios</h6>
@@ -1938,6 +1989,9 @@
         // -- WhatsApp
         'wa.tooltip': 'Escríbenos por WhatsApp',
         'wa.aria': 'Contactar por WhatsApp',
+        // -- Map
+        'map.cta': 'Abrir en Google Maps →',
+        'map.aria': 'Abrir ubicación en Google Maps',
 
         // -- Editorial strip
         'strip.eyebrow': 'Materia · Práctica · Persona',
@@ -1993,7 +2047,7 @@
         'contact.mapPlace': 'Despacho<br/><em>María Isabel Hernández</em>',
 
         'footer.brand': 'María Isabel<br/><span class="ital">Hernández.</span>',
-        'footer.tagline': 'Despacho de extranjería en Puerto de la Cruz. Asesoramiento jurídico para quienes han elegido Canarias como su lugar.',
+        'footer.tagline': 'Despacho de extranjería en Puerto de la Cruz. Asesoramiento jurídico para quienes han elegido España como su lugar.',
         'footer.servicesTitle': 'Servicios',
         'footer.contactTitle': 'Contacto',
         'footer.role': 'Abogada de Extranjería',
@@ -2025,6 +2079,9 @@
         // -- WhatsApp
         'wa.tooltip': 'Message us on WhatsApp',
         'wa.aria': 'Contact via WhatsApp',
+        // -- Map
+        'map.cta': 'Open in Google Maps →',
+        'map.aria': 'Open location in Google Maps',
 
         // -- Editorial strip
         'strip.eyebrow': 'Matter · Practice · Person',
@@ -2080,7 +2137,7 @@
         'contact.mapPlace': 'Office<br/><em>María Isabel Hernández</em>',
 
         'footer.brand': 'María Isabel<br/><span class="ital">Hernández.</span>',
-        'footer.tagline': 'Immigration law office in Puerto de la Cruz. Legal counsel for those who have chosen the Canary Islands as their place.',
+        'footer.tagline': 'Immigration law office in Puerto de la Cruz. Legal counsel for those who have chosen Spain as their place.',
         'footer.servicesTitle': 'Services',
         'footer.contactTitle': 'Contact',
         'footer.role': 'Immigration Lawyer',
@@ -2112,6 +2169,9 @@
         // -- WhatsApp
         'wa.tooltip': 'Écrivez-nous sur WhatsApp',
         'wa.aria': 'Contacter par WhatsApp',
+        // -- Map
+        'map.cta': 'Ouvrir dans Google Maps →',
+        'map.aria': 'Ouvrir l\'emplacement dans Google Maps',
 
         // -- Editorial strip
         'strip.eyebrow': 'Matière · Pratique · Personne',
@@ -2167,7 +2227,7 @@
         'contact.mapPlace': 'Cabinet<br/><em>María Isabel Hernández</em>',
 
         'footer.brand': 'María Isabel<br/><span class="ital">Hernández.</span>',
-        'footer.tagline': 'Cabinet de droit des étrangers à Puerto de la Cruz. Conseil juridique pour celles et ceux qui ont choisi les Canaries.',
+        'footer.tagline': 'Cabinet de droit des étrangers à Puerto de la Cruz. Conseil juridique pour celles et ceux qui ont choisi l\'Espagne.',
         'footer.servicesTitle': 'Services',
         'footer.contactTitle': 'Contact',
         'footer.role': 'Avocate en droit des étrangers',
@@ -2199,6 +2259,9 @@
         // -- WhatsApp
         'wa.tooltip': 'راسلنا عبر واتساب',
         'wa.aria': 'التواصل عبر واتساب',
+        // -- Map
+        'map.cta': 'افتح في خرائط جوجل ←',
+        'map.aria': 'فتح الموقع في خرائط جوجل',
 
         // -- Editorial strip
         'strip.eyebrow': 'موضوع · ممارسة · شخص',
@@ -2254,7 +2317,7 @@
         'contact.mapPlace': 'المكتب<br/><em>ماريا إيزابيل إيرنانديز</em>',
 
         'footer.brand': 'ماريا إيزابيل<br/><span class="ital">إيرنانديز.</span>',
-        'footer.tagline': 'مكتب لقانون الأجانب في بويرتو دي لا كروز. استشارة قانونية لمن اختاروا جزر الكناري وطناً لهم.',
+        'footer.tagline': 'مكتب لقانون الأجانب في بويرتو دي لا كروز. استشارة قانونية لمن اختاروا إسبانيا وطناً لهم.',
         'footer.servicesTitle': 'الخدمات',
         'footer.contactTitle': 'التواصل',
         'footer.role': 'محامية في قانون الأجانب',
