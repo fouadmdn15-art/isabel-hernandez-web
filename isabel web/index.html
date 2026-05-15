@@ -1231,6 +1231,204 @@
     .footer-bottom a:hover { color: rgba(246, 243, 235, 0.85); }
 
     /* =====================================================
+       GOOGLE REVIEWS / TESTIMONIALS SECTION
+       ===================================================== */
+    .reviews-band {
+      background: var(--bg-soft);
+      padding: 110px 0;
+      position: relative;
+    }
+    @media (max-width: 768px) { .reviews-band { padding: 70px 0; } }
+
+    .reviews-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+    .reviews-head .rh-title {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .reviews-head h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(34px, 4.5vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+    }
+    .reviews-head h2 .ital { font-style: italic; color: var(--accent); }
+
+    .rh-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+    }
+    .rh-rating .g-logo {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+    .rh-rating .score {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1;
+    }
+    .rh-rating .score-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rh-rating .score-num {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .rh-rating .score-stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .rh-rating .score-meta {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+    html[dir="rtl"] .rh-rating .score-meta { letter-spacing: 0.02em; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) { .reviews-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+    .review-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: 0 16px 40px -20px rgba(26, 61, 51, 0.22);
+    }
+    .review-card .rc-quote {
+      position: absolute;
+      top: -8px;
+      inset-inline-start: 22px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.35;
+      pointer-events: none;
+      user-select: none;
+    }
+    .review-card .rc-stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-top: 8px;
+    }
+    .review-card .rc-text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      flex: 1;
+    }
+    .review-card .rc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line-soft);
+    }
+    .review-card .rc-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-card .rc-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--bg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+    .review-card .rc-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      line-height: 1.2;
+    }
+    .review-card .rc-date {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    html[dir="rtl"] .review-card .rc-date { letter-spacing: 0.02em; }
+
+    .reviews-cta-wrap {
+      margin-top: 48px;
+      text-align: center;
+    }
+    .reviews-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      background: var(--bg);
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all .35s var(--ease);
+      text-decoration: none;
+    }
+    .reviews-cta:hover {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .reviews-cta .arrow {
+      display: inline-block;
+      transition: transform .3s var(--ease);
+    }
+    .reviews-cta:hover .arrow { transform: translateX(4px); }
+    html[dir="rtl"] .reviews-cta .arrow { transform: scaleX(-1); }
+    html[dir="rtl"] .reviews-cta:hover .arrow { transform: translateX(-4px) scaleX(-1); }
+
+    /* =====================================================
        WHATSAPP FLOATING BUTTON
        ===================================================== */
     .whatsapp-fab {
@@ -1874,6 +2072,87 @@
     </section>
   </main>
 
+  <!-- GOOGLE REVIEWS / TESTIMONIALS -->
+  <section class="reviews-band" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-head reveal">
+        <div class="rh-title">
+          <h2 id="reviews-title" data-i18n-html="reviews.title">Lo que dicen <span class="ital">en Google.</span></h2>
+        </div>
+        <div class="rh-rating" aria-label="Calificación 4.9 sobre 5 en Google, 37 reseñas">
+          <!-- Google "G" logo -->
+          <svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.1 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.1 8 3l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z"/>
+            <path fill="#34A853" d="M6.3 14.1l7 5.1C15.2 15.6 19.3 13 24 13c3.1 0 5.9 1.1 8 3l6.4-6.4C34.6 6.1 29.6 4 24 4c-7.8 0-14.5 4.5-17.7 11.1z"/>
+            <path fill="#FBBC05" d="M24 45c5.5 0 10.4-2 14.1-5.3l-6.5-5.5C29.7 35.4 27 36 24 36c-6 0-11-3.8-12.8-9.1l-7 5.4C7.7 39.7 15.2 45 24 45z"/>
+            <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.6 2.3-1.8 4.3-3.6 5.7l6.5 5.5C42.6 36.2 45 30.7 45 24c0-1.3-.2-2.7-.5-4z"/>
+          </svg>
+          <div class="score">
+            <div class="score-top">
+              <span class="score-num">4,9</span>
+              <span class="score-stars" aria-hidden="true">★★★★★</span>
+            </div>
+            <span class="score-meta" data-i18n="reviews.meta">37 reseñas verificadas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- Review 1 — Erika P -->
+        <article class="review-card reveal">
+          <span class="rc-quote" aria-hidden="true">"</span>
+          <div class="rc-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="rc-text">Recomiendo a Isabel al 100%. Si pudiera darle más estrellas, estaría más que justificado. Se encargó de la renovación de mi pasaporte, que llevaba meses intentando hacer con otro agente sin éxito. Lo hizo todo en dos días.</p>
+          <div class="rc-footer">
+            <div class="rc-author">
+              <span class="rc-avatar" aria-hidden="true">E</span>
+              <span class="rc-name">Erika P.</span>
+            </div>
+            <span class="rc-date" data-i18n="reviews.date1">Hace 5 meses</span>
+          </div>
+        </article>
+
+        <!-- Review 2 — Ana Devis -->
+        <article class="review-card reveal">
+          <span class="rc-quote" aria-hidden="true">"</span>
+          <div class="rc-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="rc-text">Isabel es excelente en su trabajo. Se encargó de mi proceso de inmigración hasta obtener la nacionalidad española. Es rápida y meticulosa. La he recomendado a varias personas, y todas han tenido excelentes experiencias con ella.</p>
+          <div class="rc-footer">
+            <div class="rc-author">
+              <span class="rc-avatar" aria-hidden="true">A</span>
+              <span class="rc-name">Ana Devis</span>
+            </div>
+            <span class="rc-date" data-i18n="reviews.date2">Hace 9 meses</span>
+          </div>
+        </article>
+
+        <!-- Review 3 — Saadia Baghach -->
+        <article class="review-card reveal">
+          <span class="rc-quote" aria-hidden="true">"</span>
+          <div class="rc-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <p class="rc-text">Tuve una buena experiencia con Isabel Hernández. Es profesional, amable y explica todo muy bien. Muchas gracias por tu ayuda 😊</p>
+          <div class="rc-footer">
+            <div class="rc-author">
+              <span class="rc-avatar" aria-hidden="true">S</span>
+              <span class="rc-name">Saadia Baghach</span>
+            </div>
+            <span class="rc-date" data-i18n="reviews.date3">Hace 1 día</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="reviews-cta-wrap reveal">
+        <a class="reviews-cta"
+           href="https://share.google/tXysVpskwFtrQM4Px"
+           target="_blank"
+           rel="noopener noreferrer">
+          <span data-i18n="reviews.cta">Ver todas las reseñas en Google</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- WHATSAPP FLOATING BUTTON -->
   <a
     href="https://wa.me/34607532086?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20consulta"
@@ -1991,6 +2270,13 @@
         'wa.aria': 'Contactar por WhatsApp',
         // -- Map
         'map.cta': 'Abrir en Google Maps →',
+        // -- Reviews
+        'reviews.title': 'Lo que dicen <span class="ital">en Google.</span>',
+        'reviews.meta': '37 reseñas verificadas',
+        'reviews.date1': 'Hace 5 meses',
+        'reviews.date2': 'Hace 9 meses',
+        'reviews.date3': 'Hace 1 día',
+        'reviews.cta': 'Ver todas las reseñas en Google',
         'map.aria': 'Abrir ubicación en Google Maps',
 
         // -- Editorial strip
@@ -2081,6 +2367,13 @@
         'wa.aria': 'Contact via WhatsApp',
         // -- Map
         'map.cta': 'Open in Google Maps →',
+        // -- Reviews
+        'reviews.title': 'What they say <span class="ital">on Google.</span>',
+        'reviews.meta': '37 verified reviews',
+        'reviews.date1': '5 months ago',
+        'reviews.date2': '9 months ago',
+        'reviews.date3': '1 day ago',
+        'reviews.cta': 'See all reviews on Google',
         'map.aria': 'Open location in Google Maps',
 
         // -- Editorial strip
@@ -2171,6 +2464,13 @@
         'wa.aria': 'Contacter par WhatsApp',
         // -- Map
         'map.cta': 'Ouvrir dans Google Maps →',
+        // -- Reviews
+        'reviews.title': 'Ce qu\'ils disent <span class="ital">sur Google.</span>',
+        'reviews.meta': '37 avis vérifiés',
+        'reviews.date1': 'Il y a 5 mois',
+        'reviews.date2': 'Il y a 9 mois',
+        'reviews.date3': 'Il y a 1 jour',
+        'reviews.cta': 'Voir tous les avis sur Google',
         'map.aria': 'Ouvrir l\'emplacement dans Google Maps',
 
         // -- Editorial strip
@@ -2261,6 +2561,13 @@
         'wa.aria': 'التواصل عبر واتساب',
         // -- Map
         'map.cta': 'افتح في خرائط جوجل ←',
+        // -- Reviews
+        'reviews.title': 'ماذا يقولون <span class="ital">على غوغل.</span>',
+        'reviews.meta': '37 تقييماً موثقاً',
+        'reviews.date1': 'قبل 5 أشهر',
+        'reviews.date2': 'قبل 9 أشهر',
+        'reviews.date3': 'قبل يوم',
+        'reviews.cta': 'عرض جميع التقييمات على غوغل',
         'map.aria': 'فتح الموقع في خرائط جوجل',
 
         // -- Editorial strip
